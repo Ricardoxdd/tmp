@@ -98,7 +98,7 @@ v tejto odpovedi môžeš vidieť aj ten
 
 - Z tohto vieme zistit **ID wardu/municipality** ,ktoré vieme použiť pri ďalšom requeste
 
-### `/api/v1/price_map/list?category_main_cb=1&date_from=2024-06&date_to=2025-05`
+### `/api/v1/price_map/list?category_main_cb=1&date_from=2024-06&date_to=2025-05&locality=region,10`
 
 - `date_from` a `date_to` su len časové údaje o historií
 
@@ -111,7 +111,8 @@ v tejto odpovedi môžeš vidieť aj ten
 - Na základe tohoto vieme už zistiť pomerne presnú cenu nehnutelnosti kde si vytiahneme priemernu cenu z **SREALITY**
 
 
-```https://www.sreality.cz/api/v1/price_map/list?category_main_cb=1&date_from=2024-06&date_to=2025-05&locality=ward,14682```
+### **Ukažka requestu ,ktorý by som použil** 
+### ```https://www.sreality.cz/api/v1/price_map/list?category_main_cb=1&date_from=2024-06&date_to=2025-05&locality=ward,14682```
 
 ```json
 "avg_price_per_sqm": 71635,
@@ -121,4 +122,4 @@ v tejto odpovedi môžeš vidieť aj ten
 
 ![alt text](image-1.png)
 
-- To by sme vynásobili počtom m^2 a mali by sme ***približnú cenu***
+- To by sme vynásobili počtom m^2 a mali by sme ***približnú cenu*** na hook zákaznika že netrepeme pičoviny
