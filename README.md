@@ -46,7 +46,7 @@ Pre obe možnosti by sme ťahali dáta zo stránky **SREALITY** ,ktorá je pod *
 
 
 ### `/api/v1/localities/suggest?`
-- Tymto vieme zistiť lokalitu z geo. šírky a dĺžky : `lat=50.1055488&lon=14.3949824&lang=cs&limit=10` 
+- Týmto vieme zistiť lokalitu z geo. šírky a dĺžky : `lat=50.1055488&lon=14.3949824&lang=cs&limit=10` 
 
 ```json 
 {
@@ -93,4 +93,32 @@ Pre obe možnosti by sme ťahali dáta zo stránky **SREALITY** ,ktorá je pod *
 v tejto odpovedi môžeš vidieť aj ten 
 ```json
 "inaccuracy_type": "ward",
+"ward_id": 14682,
 ```
+
+- Z tohto vieme zistit **ID wardu/municipality** ,ktoré vieme použiť pri ďalšom requeste
+
+### `/api/v1/price_map/list?category_main_cb=1&date_from=2024-06&date_to=2025-05`
+
+- `date_from` a `date_to` su len časové údaje o historií
+
+- `&locality=TYP OBLASTI,ID OBLASTI` 
+
+- **TYP OBLASTI** je daný ***ward / municipality / district***
+
+- **ID OBLASTI** je to čo vlastne prvotne nevieme a potrebujeme na to ten request predtým (interné ID **SREALITY**)
+
+- Na základe tohoto vieme už zistiť pomerne presnú cenu nehnutelnosti kde si vytiahneme priemernu cenu z **SREALITY**
+
+
+```https://www.sreality.cz/api/v1/price_map/list?category_main_cb=1&date_from=2024-06&date_to=2025-05&locality=ward,14682```
+
+```json
+"avg_price_per_sqm": 71635,
+```
+
+- Čo sedí aj s ich stránkami :
+
+![alt text](image-1.png)
+
+- To by sme vynásobili počtom m^2 a mali by sme ***približnú cenu***
